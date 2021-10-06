@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Builder View</string>
+
+    <string-array name="wall_array">
+        <item>Hueco 8cm</item>
+        <item>Hueco 12cm</item>
+        <item>Comun 15cm</item>
+        <item>Hueco 18cm</item>
+    </string-array>
+
+    <string-array name="roof_tile_array">
+        <item>Teja colonial</item>
+        <item>Teja francesa</item>
+    </string-array>
+
+    <string-array name="flat_array">
+        <item>Porcelato</item>
+        <item>Ceramica</item>
+    </string-array>
+
+    <string-array name="structure_array">
+        <item>Hierro de 8mm</item>
+        <item>Hierro de 10mm</item>
+    </string-array>
+    
+
+</resources>

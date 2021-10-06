@@ -1,0 +1,2 @@
+rootProject.name = "BuilderViewAlpha03"
+include ':app'
