@@ -52,22 +52,24 @@ public class SharedViewModel extends ViewModel {
 
             if (item.getNameBuild().equals("Pared")) {
                 if (item.getParamType().equals("0")) {
-                    insertAmount("ladrillo 15cm", 61 * Float.parseFloat(item.getParamExt()));
-                    insertAmount("cemento", (float) 3.5 * Float.parseFloat(item.getParamExt()));
-                    insertAmount("cal", (float) 8.27 * Float.parseFloat(item.getParamExt()));
-                    insertAmount("arena", (float) (0.04 * Float.parseFloat(item.getParamExt())));
-                }
-                if (item.getParamType().equals("1")) {
                     insertAmount("ladrillo hueco 8cm", 16 * Float.parseFloat(item.getParamExt()));
                     insertAmount("cemento", (float) 1.04 * Float.parseFloat(item.getParamExt()));
                     insertAmount("cal", (float) 1.98 * Float.parseFloat(item.getParamExt()));
                     insertAmount("arena", (float) (0.01 * Float.parseFloat(item.getParamExt())));
                 }
-                if (item.getParamType().equals("2")) {
+                if (item.getParamType().equals("1")) {
                     insertAmount("ladrillo hueco 12cm", 16 * Float.parseFloat(item.getParamExt()));
                     insertAmount("cemento", (float) 1.55 * Float.parseFloat(item.getParamExt()));
                     insertAmount("cal", (float) 2.97 * Float.parseFloat(item.getParamExt()));
                     insertAmount("arena", (float) (0.015 * Float.parseFloat(item.getParamExt())));
+
+                }
+                if (item.getParamType().equals("2")) {
+
+                    insertAmount("ladrillo 15cm", 61 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("cemento", (float) 3.5 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("cal", (float) 8.27 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("arena", (float) (0.04 * Float.parseFloat(item.getParamExt())));
                 }
                 if (item.getParamType().equals("3")) {
                     insertAmount("ladrillo hueco 18cm", 16 * Float.parseFloat(item.getParamExt()));
@@ -80,18 +82,18 @@ public class SharedViewModel extends ViewModel {
                 if (item.getParamType().equals("0")){
                     insertAmount("cemento",13 * Float.parseFloat(item.getParamExt()));
                     insertAmount("arena",(float) 0.02 * Float.parseFloat(item.getParamExt()));
-                    insertAmount("piedra partida",(float) 0.03* Float.parseFloat(item.getParamExt()));
+                    insertAmount("piedra partida",(float) 0.03 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 10mm",4 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 4,2mm",4 * Float.parseFloat(item.getParamExt()));
                 }
                 if (item.getParamType().equals("1")){
-                    /*
-                    insertAmount("cemento",* Float.parseFloat(item.getParamExt()));
-                    insertAmount("arena",* Float.parseFloat(item.getParamExt()));
-                    insertAmount("piedra partida",* Float.parseFloat(item.getParamExt()));
+
+                    insertAmount("cemento",13 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("arena",(float) 0.02 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("piedra partida",(float) 0.03 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 8mm",4 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 4,2mm",4 * Float.parseFloat(item.getParamExt()));
-                    */
+
                 }
             }
             if (item.getNameBuild().equals("Zapata")) {
@@ -99,17 +101,15 @@ public class SharedViewModel extends ViewModel {
                     insertAmount("cemento",(float) 58.41 * Float.parseFloat(item.getParamExt()));
                     insertAmount("arena",(float) 0.125 * Float.parseFloat(item.getParamExt()));
                     insertAmount("piedra partida",(float) 0.125 * Float.parseFloat(item.getParamExt()));
-                    insertAmount("hierro 10mm",18 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("hierro 8mm",18 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 4,2mm",11 * Float.parseFloat(item.getParamExt()));
                 }
                 if (item.getParamType().equals("1")){
-                    /*
-                    insertAmount("cemento",* Float.parseFloat(item.getParamExt()));
-                    insertAmount("arena",* Float.parseFloat(item.getParamExt()));
-                    insertAmount("piedra partida",* Float.parseFloat(item.getParamExt()));
+                    insertAmount("cemento",(float) 58.41 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("arena",(float) 0.125 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("piedra partida",(float) 0.125 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 10mm",18 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 4,2mm",11 * Float.parseFloat(item.getParamExt()));
-                    */
                 }
             }
 

@@ -1,5 +1,6 @@
 package xyz.testeos.builderviewalpha03.src.usecases.builds;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -77,12 +78,9 @@ public class BuildsFragment extends Fragment {
         buildsAdapter = new BuildsAdapter(buildsProvider());
 
         //Construccion OnClick
-        buildsAdapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                position = recyclerViewBuilds.getChildAdapterPosition(v);
-                showDialog();
-            }
+        buildsAdapter.setOnClickListener(v -> {
+            position = recyclerViewBuilds.getChildAdapterPosition(v);
+            showDialog();
         });
 
 
@@ -93,6 +91,7 @@ public class BuildsFragment extends Fragment {
     }
 
     //--> Metodo de inicio del Configurador
+    @SuppressLint("SetTextI18n")
     private void showDialog() {
 
         //Instancia Configurador
@@ -120,27 +119,24 @@ public class BuildsFragment extends Fragment {
 
 
         //Boton agregar OnClick
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnSubmit.setOnClickListener(v -> {
 
-                if (ext.getText() == null){
-                    Toast.makeText(getActivity(),"Complete los campos", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                dialog.dismiss();
-
-                auxBuild = new Build(buildList.get(position).getNameBuild(),
-                        buildList.get(position).getImgBuild(),
-                        buildList.get(position).getUnit(),
-                        type.getSelectedItemPosition(), Float.parseFloat(ext.getText().toString()));
-
-                sharedViewModel.setSelectedBuild(auxBuild);
-
-                hideDialogInterface();
-
-                Toast.makeText(getActivity(),"Elemento agregado a la lista", Toast.LENGTH_SHORT).show();
+            if (ext.getText() == null){
+                Toast.makeText(getActivity(),"Complete los campos", Toast.LENGTH_SHORT).show();
+                return;
             }
+            dialog.dismiss();
+
+            auxBuild = new Build(buildList.get(position).getNameBuild(),
+                    buildList.get(position).getImgBuild(),
+                    buildList.get(position).getUnit(),
+                    type.getSelectedItemPosition(), Float.parseFloat(ext.getText().toString()));
+
+            sharedViewModel.setSelectedBuild(auxBuild);
+
+            hideDialogInterface();
+
+            Toast.makeText(getActivity(),"Elemento agregado a la lista", Toast.LENGTH_SHORT).show();
         });
 
         //Ligar a la vista
@@ -185,7 +181,9 @@ public class BuildsFragment extends Fragment {
         }
         if(buildList.get(position).getNameBuild().equals("Zapata")){
 
+            tvType.setVisibility(View.VISIBLE);
             tvUnit.setVisibility(View.VISIBLE);
+            type.setVisibility(View.VISIBLE);
             ext.setVisibility(View.VISIBLE);
 
             arrayAdapter = ArrayAdapter.createFromResource(getContext(),R.array.structure_array, R.layout.layout_item_spinner);
