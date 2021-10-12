@@ -199,22 +199,26 @@ public class BuildsFragment extends Fragment {
         }
         if(buildList.get(position).getNameBuild().equals("Techo de teja")){
 
+            tvUnit.setVisibility(View.VISIBLE);
+            ext.setVisibility(View.VISIBLE);
+        }
+        if(buildList.get(position).getNameBuild().equals("Techo de chapa")){
+
             tvType.setVisibility(View.VISIBLE);
             tvUnit.setVisibility(View.VISIBLE);
             type.setVisibility(View.VISIBLE);
             ext.setVisibility(View.VISIBLE);
 
-            arrayAdapter = ArrayAdapter.createFromResource(getContext(),R.array.roof_tile_array, R.layout.layout_item_spinner);
-        }
-        if(buildList.get(position).getNameBuild().equals("techo de chapa")){
-
-            tvUnit.setVisibility(View.VISIBLE);
-            ext.setVisibility(View.VISIBLE);
+            arrayAdapter = ArrayAdapter.createFromResource(getContext(),R.array.sheet_array, R.layout.layout_item_spinner);
         }
         if(buildList.get(position).getNameBuild().equals("Revoque")){
 
+            tvType.setVisibility(View.VISIBLE);
             tvUnit.setVisibility(View.VISIBLE);
+            type.setVisibility(View.VISIBLE);
             ext.setVisibility(View.VISIBLE);
+
+            arrayAdapter = ArrayAdapter.createFromResource(getContext(),R.array.plaster_array, R.layout.layout_item_spinner);
         }
 
 
@@ -227,13 +231,12 @@ public class BuildsFragment extends Fragment {
 
         buildList.add(new Build("Pared", R.drawable.img_pared, "m²"));
         buildList.add(new Build("Encadenado / Viga", R.drawable.img_encadenado, "m"));
-        buildList.add(new Build("Columna", R.drawable.default_img, "m"));
-        buildList.add(new Build("Zapata", R.drawable.default_img, "Unidad"));
-        buildList.add(new Build("Piso", R.drawable.default_img, "m²"));
-        buildList.add(new Build("Techo de teja", R.drawable.default_img, "m²"));
-        buildList.add(new Build("Techo de chapa", R.drawable.default_img, "m²"));
-        buildList.add(new Build("Revoque", R.drawable.default_img, "m²"));
-
+        buildList.add(new Build("Columna", R.drawable.img_default, "m"));
+        buildList.add(new Build("Zapata", R.drawable.img_default, "Unidad"));
+        buildList.add(new Build("Piso", R.drawable.img_default, "m²"));
+        buildList.add(new Build("Techo de teja", R.drawable.img_default, "m²"));
+        buildList.add(new Build("Techo de chapa", R.drawable.img_default, "m²"));
+        buildList.add(new Build("Revoque", R.drawable.img_default, "m²"));
 
         return buildList;
     }

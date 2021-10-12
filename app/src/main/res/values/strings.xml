@@ -8,14 +8,20 @@
         <item>Hueco 18cm</item>
     </string-array>
 
-    <string-array name="roof_tile_array">
-        <item>Teja colonial</item>
-        <item>Teja francesa</item>
+    <string-array name="sheet_array">
+        <item>Chapa acanalada</item>
+        <item>Chapa trapezoidal</item>
+    </string-array>
+    <string-array name="plaster_array">
+        <item>Revoque grueso</item>
+        <item>Revoque fino</item>
     </string-array>
 
     <string-array name="flat_array">
-        <item>Porcelato</item>
-        <item>Ceramica</item>
+        <item>Ceramica 25x25cm</item>
+        <item>Ceramica 40x40cm</item>
+        <item>Porcelato 60x60cm</item>
+        <item>Porcelato 60x120cm</item>
     </string-array>
 
     <string-array name="structure_array">

@@ -1,5 +1,6 @@
 package xyz.testeos.builderviewalpha03.src.usecases.editArea;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,13 +48,78 @@ public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHo
     }
 
     //Binding
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull @NotNull EditAreaAdapter.ViewHolder holder, int position) {
         holder.img.setImageResource(data.get(position).getImgBuild());
         holder.name.setText(data.get(position).getNameBuild());
         holder.ext.setText(data.get(position).getParamExt());
-        holder.type.setText(data.get(position).getParamType());
+
+        if (data.get(position).getNameBuild().equals("Pared")){
+            if (data.get(position).getParamType().equals("0")) {
+                holder.type.setText("Ladrillo hueco 8cm");
+            }
+            if (data.get(position).getParamType().equals("1")) {
+                holder.type.setText("Ladrillo hueco 12cm");
+            }
+            if (data.get(position).getParamType().equals("2")) {
+                holder.type.setText("Ladrillo 15cm");
+            }
+            if (data.get(position).getParamType().equals("3")) {
+                holder.type.setText("Ladrillo hueco 18cm");
+            }
+        }
+        if (data.get(position).getNameBuild().equals("Encadenado / Viga") || data.get(position).getNameBuild().equals("Columna")) {
+            if (data.get(position).getParamType().equals("0")){
+                holder.type.setText("hierro de 8mm");
+            }
+            if (data.get(position).getParamType().equals("1")){
+                holder.type.setText("hierro de 10mm");
+            }
+        }
+        if (data.get(position).getNameBuild().equals("Zapata")) {
+            if (data.get(position).getParamType().equals("0")){
+                holder.type.setText("hierro de 8mm");
+            }
+            if (data.get(position).getParamType().equals("1")){
+                holder.type.setText("hierro de 10mm");
+            }
+        }
+        if (data.get(position).getNameBuild().equals("Piso")) {
+            if (data.get(position).getParamType().equals("0")){
+                holder.type.setText("ceramica 25x25cm");
+            }
+            if (data.get(position).getParamType().equals("1")){
+                holder.type.setText("ceramica 40x40cm");
+            }
+            if (data.get(position).getParamType().equals("2")){
+                holder.type.setText("porcelanato 60x60cm");
+            }
+            if (data.get(position).getParamType().equals("3")){
+                holder.type.setText("porcelanato 60x120cm");
+            }
+        }
+        if (data.get(position).getNameBuild().equals("Techo de teja")) {
+            holder.type.setText("teja francesa");
+        }
+        if (data.get(position).getNameBuild().equals("Techo de chapa")) {
+            if (data.get(position).getParamType().equals("0")){
+                holder.type.setText("chapa acanalada");
+            }
+            if (data.get(position).getParamType().equals("1")){
+                holder.type.setText("chapa trapezoidal");
+            }
+        }
+        if (data.get(position).getNameBuild().equals("Revoque")) {
+            if (data.get(position).getParamType().equals("0")){
+                holder.type.setText("grueso");
+            }
+            if (data.get(position).getParamType().equals("1")){
+                holder.type.setText("fino");
+            }
+        }
     }
+
 
     //Cantidad de elementos
     @Override

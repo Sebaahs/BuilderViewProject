@@ -113,7 +113,43 @@ public class SharedViewModel extends ViewModel {
 
                 }
             }
-
+            if (item.getNameBuild().equals("Piso")) {
+                if (item.getParamType().equals("0")){
+                    insertAmount("ceramica 25x25cm",(float) 16 * Float.parseFloat(item.getParamExt()));
+                }
+                if (item.getParamType().equals("1")){
+                    insertAmount("ceramica 40x40cm",(float) 6.25 * Float.parseFloat(item.getParamExt()));
+                }
+                if (item.getParamType().equals("2")){
+                    insertAmount("porcelanato 60x60cm",(float) 2.68  * Float.parseFloat(item.getParamExt()));
+                }
+                if (item.getParamType().equals("3")){
+                    insertAmount("porcelanato 60x120cm",(float) 1.39 * Float.parseFloat(item.getParamExt()));
+                }
+            }
+            if (item.getNameBuild().equals("Techo de teja")) {
+                insertAmount("Teja francesa",(float) 13.8 * Float.parseFloat(item.getParamExt()));
+            }
+            if (item.getNameBuild().equals("Techo de chapa")) {
+                if (item.getParamType().equals("0")){
+                    insertAmount("chapa acanalada",Float.parseFloat(item.getParamExt()));
+                }
+                if (item.getParamType().equals("1")){
+                    insertAmount("chapa trapezoidal",Float.parseFloat(item.getParamExt()));
+                }
+            }
+            if (item.getNameBuild().equals("Revoque")) {
+                if (item.getParamType().equals("0")){
+                    insertAmount("cemento", (float) 2 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("cal", (float) 3 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("arena", (float) (0.02 * Float.parseFloat(item.getParamExt())));
+                }
+                if (item.getParamType().equals("1")){
+                    insertAmount("cemento", (float) 0.5 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("cal", (float) 1.5 * Float.parseFloat(item.getParamExt()));
+                    insertAmount("arena", (float) (0.01 * Float.parseFloat(item.getParamExt())));
+                }
+            }
         }
 
         makeCost(materialsData, calculationList);
