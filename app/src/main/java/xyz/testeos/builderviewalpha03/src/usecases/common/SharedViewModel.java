@@ -110,6 +110,7 @@ public class SharedViewModel extends ViewModel {
                     insertAmount("piedra partida",(float) 0.125 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 10mm",18 * Float.parseFloat(item.getParamExt()));
                     insertAmount("hierro 4,2mm",11 * Float.parseFloat(item.getParamExt()));
+
                 }
             }
 
