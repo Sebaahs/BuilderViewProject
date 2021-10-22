@@ -2,6 +2,7 @@ package xyz.testeos.builderviewalpha03.src.usecases.editArea;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.sip.SipSession;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,12 @@ import xyz.testeos.builderviewalpha03.R;
 import xyz.testeos.builderviewalpha03.src.model.domain.Build;
 import xyz.testeos.builderviewalpha03.src.model.domain.Material;
 
-public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHolder> {
+public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHolder>
+                             implements View.OnClickListener {
     //Definicion
     private List<Build> data;
     private LayoutInflater inflater;
+    private View.OnClickListener listener;
 
 
     public EditAreaAdapter(Context context, List<Build> data) {
@@ -125,6 +128,16 @@ public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHo
     @Override
     public int getItemCount() {
         return data.size();
+    }
+
+    //Set para el listener
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (listener != null)listener.onClick(v);
     }
 
 

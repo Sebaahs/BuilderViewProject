@@ -28,6 +28,7 @@ public class EditAreaFragment extends Fragment {
     private EditAreaAdapter editAreaAdapter;
     private RecyclerView recyclerViewEditArea;
     private List<Build> buildList;
+    private int position;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -52,6 +53,13 @@ public class EditAreaFragment extends Fragment {
         editAreaAdapter = new EditAreaAdapter(getContext(), buildList);
         recyclerViewEditArea.setAdapter(editAreaAdapter);
 
+
+        //set Click
+        editAreaAdapter.setOnClickListener(v -> {
+            position = recyclerViewEditArea.getChildAdapterPosition(v);
+            DeleteItem();
+        });
+
         //Observer
         sharedViewModel.getSelectedBuild().observe(getViewLifecycleOwner(), build ->{
             if (build != null){
@@ -65,6 +73,12 @@ public class EditAreaFragment extends Fragment {
 
 
         return view;
+    }
+
+    public void DeleteItem (){
+
+        //BORRAR ITEM SELECCIONADO DEL LISTADO
+
     }
 
 

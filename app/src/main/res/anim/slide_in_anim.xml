@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
-    <translate
-        android:duration="@android:integer/config_mediumAnimTime"
-        android:fromYDelta="100%p"
-        android:toYDelta="0"/>
+
+    <scale
+        android:fromXScale="0dp"
+        android:fromYScale="0dp"
+        android:toXScale="70dp"
+        android:toYScale="100dp"
+        />
+
 </set>

@@ -8,7 +8,8 @@
     android:animateLayoutChanges="true"
     app:cardCornerRadius="18dp"
     app:cardElevation="1dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,22 +22,13 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="10dp"
-            android:src="@drawable/img_pared"
-            />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:orientation="horizontal"
-            android:padding="15dp">
+            android:src="@drawable/img_pared" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="2dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -44,8 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Construccion"
                     android:fontFamily="@font/roboto_regular"
+                    android:text="Construccion"
                     android:textColor="@color/color_main"
                     android:textSize="24sp" />
 
@@ -53,25 +45,22 @@
                     android:id="@+id/edit_area_build_tvType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="tipo"
                     android:fontFamily="@font/montserrat_light"
-                    android:textSize="20sp"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:text="tipo"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/edit_area_build_tvExt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="30m²"
                     android:fontFamily="@font/montserrat_light"
-                    android:textSize="20sp"
-                    android:padding="5dp" />
-
+                    android:padding="5dp"
+                    android:text="30m²"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
-
-        </RelativeLayout>
 
     </LinearLayout>
 
