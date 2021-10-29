@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "xyz.testeos.builderviewalpha03"
+        applicationId "com.sebaahs.builderview"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

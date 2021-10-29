@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.usecases.editArea.EditAreaFragment">
+    tools:context="com.sebaahs.builderview.src.usecases.editArea.EditAreaFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
