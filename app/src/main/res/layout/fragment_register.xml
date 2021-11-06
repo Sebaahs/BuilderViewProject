@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".src.usecases.validation.pages.RegisterFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/signin_background"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/register_et_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/edit_text_type_1"
+            android:hint="Correo"
+            android:padding="15dp" />
+
+
+        <EditText
+            android:id="@+id/register_et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/edit_text_type_1"
+            android:hint="Contraseña"
+            android:padding="15dp" />
+
+        <EditText
+            android:id="@+id/register_et_repeat_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/edit_text_type_1"
+            android:hint="Repetir contraseña"
+            android:padding="15dp" />
+
+
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/register_btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_type_1"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Registrarse"
+            android:textColor="@color/white" />
+
+
+
+        <TextView
+            android:id="@+id/register_btn_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:text="Si ya tienes cuenta, inicia sesion"
+            android:textColor="@color/color_link"
+            android:textSize="17sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+
+    </LinearLayout>
+</FrameLayout>

@@ -28,6 +28,8 @@
         <item>Hierro de 8mm</item>
         <item>Hierro de 10mm</item>
     </string-array>
-    
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

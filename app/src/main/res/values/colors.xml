@@ -15,6 +15,8 @@
     <color name="color_sec_01">#FF7676</color>
     <color name="color_sec_02">#9F3657</color>
     <color name="color_aux">#320019</color>
+    <color name="color_link">#1485DB</color>
+    <color name="color_grey_light">#B4B4B4</color>
 
 
 </resources>

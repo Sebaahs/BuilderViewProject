@@ -36,10 +36,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        //Set del tema de la aplicacion ( remplaza el splashscreen )
-        setTheme(R.style.Theme_Design_Light_NoActionBar);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

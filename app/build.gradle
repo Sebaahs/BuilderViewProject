@@ -62,7 +62,10 @@ dependencies {
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:28.4.2')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     //Google Analytics
     implementation 'com.google.firebase:firebase-analytics'
+
 }
