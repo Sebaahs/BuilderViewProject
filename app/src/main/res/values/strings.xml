@@ -28,8 +28,16 @@
         <item>Hierro de 8mm</item>
         <item>Hierro de 10mm</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_materials">Materiales</string>
+    <string name="menu_providers">Corralones</string>
+    <string name="menu_more_options">Mas</string>
+    <string name="menu_settings">Configuracion</string>
+    <string name="menu_info">Acerca de</string>
+    <string name="menu_account_options">Cuenta</string>
+    <string name="menu_logout">Cerrar sesion</string>
 
 
 </resources>

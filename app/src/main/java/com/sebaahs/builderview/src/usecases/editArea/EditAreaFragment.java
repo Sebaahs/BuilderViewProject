@@ -32,7 +32,7 @@ public class EditAreaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.edit_area_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_edit_area, container, false);
 
 
         //Instancia de la lista como nuevo ArrayList<>()

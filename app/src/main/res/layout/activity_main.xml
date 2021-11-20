@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sebaahs.builderview.src.usecases.home.HomeActivity">
+    tools:context="com.sebaahs.builderview.src.usecases.home.HomeActivity"
+    >
 
-    <com.google.android.material.tabs.TabLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabMenu"
-        android:background="@color/color_main"
-        app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/color_sec_01"
-        app:tabIndicatorHeight="2dp"
-        app:tabSelectedTextColor="@color/color_sec_01"
-        />
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tabMenu"
-        />
+        android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/progress"
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tabMenu"
+                android:background="@color/color_main"
+                app:tabTextColor="@color/white"
+                app:tabIndicatorColor="@color/color_sec_01"
+                app:tabIndicatorHeight="2dp"
+                app:tabSelectedTextColor="@color/color_sec_01"
+                />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tabMenu"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_drawer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"
         />
 
-
-
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

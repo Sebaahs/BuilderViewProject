@@ -14,8 +14,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".src.usecases.home.HomeActivity"/>
-
+        <activity android:name=".src.usecases.providerList.ProviderListActivity"></activity>
+        <activity android:name=".src.usecases.materialsList.MaterialsListActivity" />
+        <activity android:name=".src.usecases.home.HomeActivity" />
         <activity
             android:name=".src.usecases.validation.ValidationActivity"
             android:theme="@style/splashTheme">
@@ -25,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- tools:targetApi="m" -->
     </application>
 
 </manifest>
