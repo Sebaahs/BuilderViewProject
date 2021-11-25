@@ -226,12 +226,12 @@ public class BuildsFragment extends Fragment {
 
         buildList.add(new Build("Pared", R.drawable.img_pared, "m²"));
         buildList.add(new Build("Encadenado / Viga", R.drawable.img_encadenado, "m"));
-        buildList.add(new Build("Columna", R.drawable.img_default, "m"));
-        buildList.add(new Build("Zapata", R.drawable.img_default, "Unidad"));
-        buildList.add(new Build("Piso", R.drawable.img_default, "m²"));
-        buildList.add(new Build("Techo de teja", R.drawable.img_default, "m²"));
-        buildList.add(new Build("Techo de chapa", R.drawable.img_default, "m²"));
-        buildList.add(new Build("Revoque", R.drawable.img_default, "m²"));
+        buildList.add(new Build("Columna", R.drawable.img_columna, "m"));
+        buildList.add(new Build("Zapata", R.drawable.img_zapata, "Unidad"));
+        buildList.add(new Build("Piso", R.drawable.img_piso, "m²"));
+        buildList.add(new Build("Techo de teja", R.drawable.img_teja, "m²"));
+        buildList.add(new Build("Techo de chapa", R.drawable.img_chapa, "m²"));
+        buildList.add(new Build("Revoque", R.drawable.img_revoque, "m²"));
 
         return buildList;
     }

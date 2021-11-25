@@ -55,7 +55,7 @@ public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHo
     public void onBindViewHolder(@NonNull @NotNull EditAreaAdapter.ViewHolder holder, int position) {
         holder.img.setImageResource(data.get(position).getImgBuild());
         holder.name.setText(data.get(position).getNameBuild());
-        holder.ext.setText(data.get(position).getParamExt());
+        holder.ext.setText(data.get(position).getUnit() + ": " + data.get(position).getParamExt());
 
         if (data.get(position).getNameBuild().equals("Pared")){
             if (data.get(position).getParamType().equals("0")) {

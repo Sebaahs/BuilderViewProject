@@ -47,7 +47,7 @@ public class CalculationAdapter extends RecyclerView.Adapter<CalculationAdapter.
 
             holder.material.setText(data.get(position).getName());
             holder.amount.setText(String.valueOf(Math.round(data.get(position).getAmount() * 100.0)/100.0));
-            holder.cost.setText("$" + Math.round(data.get(position).getCost()));
+            holder.cost.setText("$ " + Math.round(data.get(position).getCost()));
     }
 
     @Override

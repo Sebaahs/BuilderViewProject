@@ -1,5 +1,6 @@
 package com.sebaahs.builderview.src.usecases.validation.pages;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,8 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sebaahs.builderview.R;
+import com.sebaahs.builderview.src.provides.preference.LocalPreferences;
+import com.sebaahs.builderview.src.provides.preference.PreferencesKey;
 import com.sebaahs.builderview.src.usecases.home.HomeActivity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class RegisterFragment extends Fragment {
@@ -28,6 +36,10 @@ public class RegisterFragment extends Fragment {
 
     private TextView toLogin;
     private FragmentManager fragmentManager;
+
+    private LocalPreferences preferences;
+
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     public RegisterFragment() {
     }
@@ -56,7 +68,7 @@ public class RegisterFragment extends Fragment {
                     .replace(R.id.fragment_container_validation, LogInFragment.class, null)
                     .commit();
         });
-
+        preferences = new LocalPreferences(this.getActivity());
         //Register
         Register();
 
@@ -66,40 +78,50 @@ public class RegisterFragment extends Fragment {
 
     public void Register() {
 
-
         btn_register.setOnClickListener(v -> {
 
-            if (!validation()) {
-                //ERROR DE VALIDACION DE CAMPOS
-                return;
-            }
+            if (!validation())return;
 
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(et_mail.getText().toString(), et_pass.getText().toString())
-                    .addOnCompleteListener(task -> {
-                        if (!task.isSuccessful()) {
-                            firebaseAlert();
-                            return;
-                        }
-                        toHome(task.getResult().getUser().getEmail());
-                    });
-
+            auth.createUserWithEmailAndPassword(et_mail.getText().toString(), et_pass.getText().toString()).addOnCompleteListener(task -> {
+                if (!task.isSuccessful()){
+                      firebaseAlert(task.getException().getMessage());
+                      return;
+                }
+                preferences.setPreferenceData(getActivity(),PreferencesKey.EMAIL,et_mail.getText().toString());
+                preferences.setPreferenceData(getActivity(),PreferencesKey.PASSWORD,et_pass.getText().toString());
+                toHome(et_mail.getText().toString());
+            });
         });
-
     }
 
-    public boolean validation() {
-        //COMPLETE VALIDATION
+    private void toHome(String email) {
+        startActivity(new Intent(getActivity(), HomeActivity.class).putExtra("email", email));
+    }
+
+    public void firebaseAlert(String massage) {
+        Toast.makeText(getActivity(), "Firebase error: " + massage, Toast.LENGTH_LONG).show();
+    }
+
+    public boolean validation(){
+
+        if (et_mail.getText().toString().equals("") || et_pass.getText().toString().equals("")){
+            Toast.makeText(getContext(),"Complete todos los campos",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!et_mail.getText().toString().contains("@") || !et_mail.getText().toString().contains(".") || et_mail.getText().toString().length() < 8){
+            Toast.makeText(getContext(),"Formato de correo no valido",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (et_pass.getText().toString().length() < 6){
+            Toast.makeText(getContext(),"La contraseña debe contener un minimo de 6 caracteres",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!et_pass.getText().toString().equals(et_pass2.getText().toString())){
+            Toast.makeText(getContext(),"Las contraseñas no coinciden",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
-    }
-
-    public void firebaseAlert() {
-        Toast.makeText(getContext(),"ERROR FIREBASE",Toast.LENGTH_SHORT).show();
-    }
-
-    public void toHome(String email) {
-        Intent intent = new Intent(getActivity(), HomeActivity.class)
-                .putExtra("email", email);
-        startActivity(intent);
     }
 
 }
