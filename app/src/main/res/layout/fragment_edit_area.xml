@@ -10,17 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvEditArea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Listado"
-            android:gravity="center"
-            android:textColor="@color/color_main"
-            android:textSize="30sp" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvEditArea"
             android:layout_width="match_parent"

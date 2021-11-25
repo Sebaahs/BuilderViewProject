@@ -92,7 +92,7 @@ public class BuildsFragment extends Fragment {
         //Instancia Configurador
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.layout_bottom_sheet);
+        dialog.setContentView(R.layout.layout_dialog_bottom_view);
 
         //Definicion general
         ext = dialog.findViewById(R.id.etExtSelected);
@@ -237,7 +237,7 @@ public class BuildsFragment extends Fragment {
     }
 
     //--> Oculta la interface del Configurador
-    private void hideDialogInterface() {
+    public void hideDialogInterface() {
         tvType.setVisibility(View.GONE);
         tvUnit.setVisibility(View.GONE);
         type.setVisibility(View.GONE);

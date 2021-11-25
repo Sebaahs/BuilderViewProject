@@ -13,23 +13,10 @@
 
         <TextView
             android:layout_alignParentTop="true"
-            android:id="@+id/tvBudget"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Cómputo"
-            android:gravity="center"
-            android:textColor="@color/color_main"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_below="@+id/tvBudget"
             android:id="@+id/Budget_tvTotalCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_margin="10dp"
             android:background="@drawable/total_background"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -39,9 +26,27 @@
             android:visibility="gone"
             />
 
-        <LinearLayout
-            android:id="@+id/ll_rvC"
+        <Button
             android:layout_below="@+id/Budget_tvTotalCost"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:id="@+id/budget_btn_pdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Exportar remito a PDF"
+            android:background="@drawable/btn_type_pdf"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            />
+
+
+
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_rvC"
+            android:layout_below="@+id/budget_btn_pdf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -101,9 +106,10 @@
                 android:layout_height="wrap_content"
                 />
 
-
         </LinearLayout>
 
     </RelativeLayout>
+
+
 
 </FrameLayout>

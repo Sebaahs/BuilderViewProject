@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Builder View</string>
+    <string name="author">Sebastian Leonel Dipietro</string>
 
     <string-array name="wall_array">
         <item>Hueco 8cm</item>
@@ -38,6 +39,7 @@
     <string name="menu_info">Acerca de</string>
     <string name="menu_account_options">Cuenta</string>
     <string name="menu_logout">Cerrar sesion</string>
+    <string name="about_information">BuilderView es una aplicacion android para asistencia a la construccion (computo y presupuesto) realizada en android studio Java. Actualmente BuilderView se encuentra en fase de desarrollo y una version temprana</string>
 
 
 </resources>

@@ -10,7 +10,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import com.sebaahs.builderview.src.core.ApiAdapter;
+import com.sebaahs.builderview.src.provides.services.PrivAPI.ApiAdapter;
 import com.sebaahs.builderview.src.model.domain.Material;
 
 public class HomeViewModel extends ViewModel {

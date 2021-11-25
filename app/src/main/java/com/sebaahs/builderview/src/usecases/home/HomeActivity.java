@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -26,16 +27,22 @@ import java.util.List;
 
 import com.sebaahs.builderview.R;
 import com.sebaahs.builderview.src.model.domain.Material;
+import com.sebaahs.builderview.src.provides.preference.LocalPreferences;
+import com.sebaahs.builderview.src.usecases.About.AboutActivity;
 import com.sebaahs.builderview.src.usecases.budget.BudgetFragment;
 import com.sebaahs.builderview.src.usecases.builds.BuildsFragment;
 import com.sebaahs.builderview.src.usecases.editArea.EditAreaFragment;
 import com.sebaahs.builderview.src.usecases.materialsList.MaterialsListActivity;
 import com.sebaahs.builderview.src.usecases.providerList.ProviderListActivity;
+import com.sebaahs.builderview.src.usecases.validation.ValidationActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Intent intent;
 
+    private TextView navHeaderEmail;
+
+    private View navHeader;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
@@ -55,6 +62,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle bundle = new Bundle();
+
+        bundle = getIntent().getExtras();
+
+        String email = bundle.getString("email");
 
         //Instancia del budget fragment
         budgetFragment = new BudgetFragment();
@@ -62,16 +74,24 @@ public class HomeActivity extends AppCompatActivity {
         materialsList = new ArrayList<>();
 
         //Inicializacion de IU
-        progressBar = findViewById(R.id.progress);
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabMenu);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_drawer);
+
+        navHeader = navigationView.getHeaderView(0);
+        navHeaderEmail = navHeader.findViewById(R.id.nav_header_email);
+
         toolbar = findViewById(R.id.toolbar);
 
         //setup toolbar
         setSupportActionBar(toolbar);
+
+        //setear E-Mail del usuario actual
+        navHeaderEmail.setText(email);
+
+        //setup Navigation drawer
         navigationView.setNavigationItemSelectedListener(item -> {
 
             if (item.getItemId() == R.id.menu_item_materials){
@@ -83,16 +103,23 @@ public class HomeActivity extends AppCompatActivity {
                 intent = new Intent(this, ProviderListActivity.class);
                 startActivity(intent);
                 return false;
-            }
+            }/*
             if (item.getItemId() == R.id.menu_item_settings){
                 //intent = new Intent(this, SettingsActivity.class);
-            }
+            }*/
             if (item.getItemId() == R.id.menu_item_info){
-                //intent = new Intent(this, InfoActivity.class);
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
             }
             if (item.getItemId() == R.id.menu_item_logout){
+
                 //LOGOUT
-                Toast.makeText(this,"LOGOUT",Toast.LENGTH_SHORT).show();
+                LocalPreferences preferences = new LocalPreferences(this);
+                preferences.clear(this);
+
+                intent = new Intent(this, ValidationActivity.class);
+                startActivity(intent);
+
                 return false;
             }
             return false;
@@ -115,7 +142,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 objSend.putParcelableArrayList("key", (ArrayList<? extends Parcelable>) materials);
                 budgetFragment.setArguments(objSend);
-                progressBar.setVisibility(View.GONE);
+                findViewById(R.id.home_init_progressbar).setVisibility(View.GONE);
             }
 
             mAdapter.addFragment(new BuildsFragment());

@@ -25,7 +25,6 @@ public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHo
     private LayoutInflater inflater;
     private View.OnClickListener listener;
 
-
     public EditAreaAdapter(Context context, List<Build> data) {
         this.data = data;
         inflater = LayoutInflater.from(context);
@@ -44,6 +43,8 @@ public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHo
 
         ////Definicion del inflater para cada elemento
         View view = inflater.inflate(R.layout.list_element_edit_area, parent , false);
+
+        view.setOnClickListener(this);
 
         return new EditAreaAdapter.ViewHolder(view);
     }
@@ -121,23 +122,22 @@ public class EditAreaAdapter extends RecyclerView.Adapter<EditAreaAdapter.ViewHo
         }
     }
 
-
     //Cantidad de elementos
     @Override
     public int getItemCount() {
         return data.size();
     }
 
-    //Set para el listener
-    public void setOnClickListener(View.OnClickListener listener){
+    public void setOnClicListener(View.OnClickListener listener){
         this.listener = listener;
     }
 
     @Override
     public void onClick(View v) {
-        if (listener != null)listener.onClick(v);
+        if (listener != null){
+            listener.onClick(v);
+        }
     }
-
 
     //ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {

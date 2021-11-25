@@ -24,6 +24,8 @@ public class ValidationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validation);
 
+
+
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         fragmentManager

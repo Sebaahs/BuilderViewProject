@@ -45,7 +45,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
 
-
+    <include
+        android:id="@+id/validation_blank_screen"
+        layout="@layout/blank_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

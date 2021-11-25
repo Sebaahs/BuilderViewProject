@@ -1,24 +1,26 @@
 package com.sebaahs.builderview.src.usecases.validation.pages;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.dynamic.SupportFragmentWrapper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.sebaahs.builderview.R;
-import com.sebaahs.builderview.src.model.domain.TypeOfCredentials;
+import com.sebaahs.builderview.src.provides.preference.LocalPreferences;
+import com.sebaahs.builderview.src.provides.preference.PreferencesKey;
 import com.sebaahs.builderview.src.usecases.home.HomeActivity;
 
 
@@ -28,7 +30,16 @@ public class LogInFragment extends Fragment {
     private EditText et_mail,et_pass;
     private TextView toRegister;
     private FragmentManager fragmentManager;
+    private LocalPreferences preferences;
+
     public LogInFragment() {    }
+
+    @Override
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+
+
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,8 +47,8 @@ public class LogInFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_log_in, container, false);
 
-        fragmentManager = getActivity().getSupportFragmentManager();
 
+        fragmentManager = getActivity().getSupportFragmentManager();
 
         toRegister = view.findViewById(R.id.login_btn_to_register);
         btn_login = view.findViewById(R.id.login_btn_login);
@@ -54,7 +65,10 @@ public class LogInFragment extends Fragment {
         });
 
         //LOGIN
-        login();
+        preferences = new LocalPreferences(this.getActivity());
+        if (!EstadoDeSesion()){
+            getActivity().findViewById(R.id.validation_blank_screen).setVisibility(View.GONE);
+        }
 
         return view;
     }
@@ -63,22 +77,32 @@ public class LogInFragment extends Fragment {
 
     public void login(){
 
-
         btn_login.setOnClickListener(v -> {
-
             if (!validation())return;
-
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(et_mail.getText().toString(), et_pass.getText().toString())
-                    .addOnCompleteListener(task -> {
-                        if(!task.isSuccessful()){
-                            firebaseAlert();
-                            return;
-                        }
-                        toHome(task.getResult().getUser().getEmail(), TypeOfCredentials.EMAIL);
-                    });
-
+            firebaseAuth("","");
         });
 
+    }
+
+    private void firebaseAuth(String mail, String pass) {
+
+        if (mail.equals("") || pass.equals("")){
+            mail = et_mail.getText().toString();
+            pass = et_pass.getText().toString();
+
+            preferences.setPreferenceData(getActivity(),PreferencesKey.EMAIL,mail);
+            preferences.setPreferenceData(getActivity(),PreferencesKey.PASSWORD,pass);
+        }
+
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(mail, pass)
+                .addOnCompleteListener(task -> {
+                    if(!task.isSuccessful()){
+                        firebaseAlert();
+                        return;
+                    }
+
+                    toHome(task.getResult().getUser().getEmail());
+                });
     }
 
     public boolean validation(){
@@ -103,12 +127,24 @@ public class LogInFragment extends Fragment {
         Toast.makeText(getContext(),"ERROR FIREBASE",Toast.LENGTH_SHORT).show();
     }
 
-    public void toHome(String email, TypeOfCredentials provider) {
+    public void toHome(String email) {
         Intent intent = new Intent(getActivity(), HomeActivity.class)
-                .putExtra("email", email)
-                .putExtra("provider", provider.name());
+                .putExtra("email", email);
         startActivity(intent);
     }
 
+    public boolean EstadoDeSesion(){
+
+
+        if (!preferences.string(getContext(),PreferencesKey.EMAIL).equals("") &&
+                !preferences.string(getContext(),PreferencesKey.PASSWORD).equals("")){
+
+            firebaseAuth(preferences.string(getContext(),PreferencesKey.EMAIL), preferences.string(getContext(),PreferencesKey.PASSWORD));
+            return true;
+        }
+
+        login();
+        return false;
+    }
 
 }

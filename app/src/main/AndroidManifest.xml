@@ -4,6 +4,8 @@
     package="com.sebaahs.builderview">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,11 +16,14 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".src.usecases.providerList.ProviderListActivity"></activity>
+        <activity android:name=".src.usecases.About.AboutActivity"></activity>
+        <activity android:name=".src.usecases.ganeratePdf.GeneratePdfActivity" />
+        <activity android:name=".src.usecases.providerList.ProviderListActivity" />
         <activity android:name=".src.usecases.materialsList.MaterialsListActivity" />
         <activity android:name=".src.usecases.home.HomeActivity" />
         <activity
             android:name=".src.usecases.validation.ValidationActivity"
+            android:noHistory="true"
             android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

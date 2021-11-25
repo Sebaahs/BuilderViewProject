@@ -16,10 +16,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.sebaahs.builderview.R;
-import com.sebaahs.builderview.src.model.domain.TypeOfCredentials;
 import com.sebaahs.builderview.src.usecases.home.HomeActivity;
-
-import java.util.Objects;
 
 
 public class RegisterFragment extends Fragment {
@@ -83,7 +80,7 @@ public class RegisterFragment extends Fragment {
                             firebaseAlert();
                             return;
                         }
-                        toHome(task.getResult().getUser().getEmail(), TypeOfCredentials.EMAIL);
+                        toHome(task.getResult().getUser().getEmail());
                     });
 
         });
@@ -99,10 +96,9 @@ public class RegisterFragment extends Fragment {
         Toast.makeText(getContext(),"ERROR FIREBASE",Toast.LENGTH_SHORT).show();
     }
 
-    public void toHome(String email, TypeOfCredentials provider) {
+    public void toHome(String email) {
         Intent intent = new Intent(getActivity(), HomeActivity.class)
-                .putExtra("email", email)
-                .putExtra("provider", provider.name());
+                .putExtra("email", email);
         startActivity(intent);
     }
 
